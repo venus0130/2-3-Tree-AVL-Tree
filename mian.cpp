@@ -1,6 +1,3 @@
-// 10927213 ³¯¥i¤¤ 10927217 ±iºû®R
-// ¦b³Ì·sª©¥»ªºDevc++¤¤¥i¦¨¥\°õ¦æ
-
 #include <iostream>
 #include <fstream>
 #include <string.h>
@@ -12,44 +9,44 @@ using namespace std;
 
 int filenum = 0;
 
-struct data   // AVL¾ğ¥Î
+struct data   // AVLæ¨¹ç”¨
 {
-    int schoolCode;    // ¾Ç®Õ¥N½X
-    string schoolName; // ¾Ç®Õ¦WºÙ
-    int departCode;    // ¬ì¨t¥N½X
-    string departName; // ¬ì¨t¦WºÙ
-    string day;		   // ¤é¶¡³¡
-    string advanced;  // ¶i­×§O
-    string level;  	   // µ¥¯Å§O
-    int studentNum;   // ¾Ç¥Í¤H¼Æ
-    int number;        // ½s¸¹
+    int schoolCode;    // å­¸æ ¡ä»£ç¢¼
+    string schoolName; // å­¸æ ¡åç¨±
+    int departCode;    // ç§‘ç³»ä»£ç¢¼
+    string departName; // ç§‘ç³»åç¨±
+    string day;		   // æ—¥é–“éƒ¨
+    string advanced;  // é€²ä¿®åˆ¥
+    string level;  	   // ç­‰ç´šåˆ¥
+    int studentNum;   // å­¸ç”Ÿäººæ•¸
+    int number;        // ç·¨è™Ÿ
 };
 
-struct DataTree   // AVL¾ğ¥Î
+struct DataTree   // AVLæ¨¹ç”¨
 {
-    int schoolCode;    // ¾Ç®Õ¥N½X
-    string schoolName; // ¾Ç®Õ¦WºÙ
-    string departName; // ¬ì¨t¦WºÙ
-    struct DataTree * left;    // ¥ª¤l¾ğ
-    struct DataTree * right;   // ¬c¤l¾ğ
-    int number;				   // ½s¸¹
-    vector<int> node;          // ¦P¬ì¨t¦s¤J¦P¤@¸`ÂI
+    int schoolCode;    // å­¸æ ¡ä»£ç¢¼
+    string schoolName; // å­¸æ ¡åç¨±
+    string departName; // ç§‘ç³»åç¨±
+    struct DataTree * left;    // å·¦å­æ¨¹
+    struct DataTree * right;   // æŸšå­æ¨¹
+    int number;				   // ç·¨è™Ÿ
+    vector<int> node;          // åŒç§‘ç³»å­˜å…¥åŒä¸€ç¯€é»
 };
 
-struct Data // 2-3¾ğ¥Î
+struct Data // 2-3æ¨¹ç”¨
 {
-    int row_num ; // §Ç¸¹
-    string snumber ;  // ¾Ç®Õ¥N½X
-    string sname ;  //¾Ç®Õ¦WºÙ-¦¹§@·~­«ÂI
-    string dnumber ;  //¬ì¨t¥N½X
-    string dname ;  //¬ì¨t¦WºÙ
-    string day ;  // ¤é¶i / ¶i­×§O
-    string level ;  //µ¥¯Å§O
-    int student_num ;  //¾Ç¥Í¼Æ
-    int teacher_num ;  //±Ğ®v¼Æ
-    int graduates ;  //¤W¾Ç¦~«×²¦·~¥Í¼Æ
-    string city ;  //¿¤¥«¦WºÙ
-    string system ;  //Åé¨t§O
+    int row_num ; // åºè™Ÿ
+    string snumber ;  // å­¸æ ¡ä»£ç¢¼
+    string sname ;  //å­¸æ ¡åç¨±-æ­¤ä½œæ¥­é‡é»
+    string dnumber ;  //ç§‘ç³»ä»£ç¢¼
+    string dname ;  //ç§‘ç³»åç¨±
+    string day ;  // æ—¥é€² / é€²ä¿®åˆ¥
+    string level ;  //ç­‰ç´šåˆ¥
+    int student_num ;  //å­¸ç”Ÿæ•¸
+    int teacher_num ;  //æ•™å¸«æ•¸
+    int graduates ;  //ä¸Šå­¸å¹´åº¦ç•¢æ¥­ç”Ÿæ•¸
+    string city ;  //ç¸£å¸‚åç¨±
+    string system ;  //é«”ç³»åˆ¥
 
 };
 int t1 = 0;
@@ -91,33 +88,33 @@ public :
         while( !quit )
         {
 
-            if ( cur -> key1[0].sname == data.sname )    // »Pkey1¦P®Õ¦W
+            if ( cur -> key1[0].sname == data.sname )    // èˆ‡key1åŒæ ¡å
             {
                 cur -> key1.push_back( data ) ;
                 quit = true;
                 haveput = true;
 
             }
-            else if ( cur -> key2.empty() == false && cur -> key2[0].sname == data.sname )   // »Pkey2¦P®Õ¦W
+            else if ( cur -> key2.empty() == false && cur -> key2[0].sname == data.sname )   // èˆ‡key2åŒæ ¡å
             {
                 cur -> key2.push_back( data ) ;
                 quit = true;
                 haveput = true;
             }
-            else if ( !quit && cur -> leftnode == NULL && cur -> rightnode == NULL && cur -> midnode == NULL ) // §ä¨ì³Ì©³¤F
+            else if ( !quit && cur -> leftnode == NULL && cur -> rightnode == NULL && cur -> midnode == NULL ) // æ‰¾åˆ°æœ€åº•äº†
                 quit = true;
-            else if ( cur -> key1[0].sname > data.sname ) //¤ñkey1¤p
+            else if ( cur -> key1[0].sname > data.sname ) //æ¯”key1å°
                 cur =  cur -> leftnode ;
-            else if ( cur -> key2.empty() )    // ¥u¦³¤@­Ókey¡A¥B¤ñkey¤j
+            else if ( cur -> key2.empty() )    // åªæœ‰ä¸€å€‹keyï¼Œä¸”æ¯”keyå¤§
             {
                 if ( data.sname > cur -> key1[0].sname )
                     cur =  cur -> rightnode ;
             }
-            else if ( cur -> key2.empty() == false )   // ¨â­Ókey
+            else if ( cur -> key2.empty() == false )   // å…©å€‹key
             {
-                if (  data.sname > cur -> key2[0].sname ) // ¤j©ókey2
+                if (  data.sname > cur -> key2[0].sname ) // å¤§æ–¼key2
                     cur =  cur -> rightnode ;
-                else if ( cur -> key2[0].sname > data.sname  &&  data.sname > cur -> key1[0].sname ) // ¤¶©ókey1&key2¤§¶¡
+                else if ( cur -> key2[0].sname > data.sname  &&  data.sname > cur -> key1[0].sname ) // ä»‹æ–¼key1&key2ä¹‹é–“
                     cur = cur -> midnode ;
             }
             else ;
@@ -127,7 +124,7 @@ public :
 
         if ( !haveput )
         {
-            if ( cur -> keynum == 1 ) // ¥u¦³¤@­Ókey // key1 always < key2
+            if ( cur -> keynum == 1 ) // åªæœ‰ä¸€å€‹key // key1 always < key2
             {
                 if (  data.sname < cur -> key1[0].sname  )
                 {
@@ -144,9 +141,9 @@ public :
                     cur -> keynum = 2 ;
                 }
             }
-            else if ( cur -> keynum == 2 ) // ¤w¸g¦³¨â­Ókey¤F
+            else if ( cur -> keynum == 2 ) // å·²ç¶“æœ‰å…©å€‹keyäº†
             {
-                vector<Data> t ; // ²Ä¤T­Ókey
+                vector<Data> t ; // ç¬¬ä¸‰å€‹key
                 t.push_back( data ) ;
                 ttTree_split( cur, t, NULL, NULL, NULL, NULL ) ;
                 t.clear() ;
@@ -187,17 +184,17 @@ public :
             p = cur -> parent;
 
 
-        ttTree * n1 = new ttTree  ;  // n1¦ssmallest key
+        ttTree * n1 = new ttTree  ;  // n1å­˜smallest key
         n1-> key1 = small ;
         n1-> parent = p ;
         n1-> keynum = 1 ;
 
-        ttTree * n2 = new ttTree  ;   // n2¦sbiggest key
+        ttTree * n2 = new ttTree  ;   // n2å­˜biggest key
         n2-> key1 = big ;
         n2-> parent = p ;
         n2-> keynum = 1 ;
 
-        if ( cur -> leftnode != NULL || cur -> midnode != NULL || cur -> rightnode != NULL )   // ·í¤w¶i¤J»¼°j
+        if ( cur -> leftnode != NULL || cur -> midnode != NULL || cur -> rightnode != NULL )   // ç•¶å·²é€²å…¥éè¿´
         {
             n1 -> leftnode = treeA ;
             n1 -> rightnode = treeB ;
@@ -210,7 +207,7 @@ public :
         }
 
 
-        if ( p -> keynum == 1 ) // curªºparent¥u¦³¤@­Ókey
+        if ( p -> keynum == 1 ) // curçš„parentåªæœ‰ä¸€å€‹key
         {
             if (  p -> key1[0].sname > mid[0].sname  )
             {
@@ -228,7 +225,7 @@ public :
                 p -> keynum = 2 ;
             }
         }
-        else if ( p -> keynum == 2 ) // curªºparent¤w¦³¨â­Ókey
+        else if ( p -> keynum == 2 ) // curçš„parentå·²æœ‰å…©å€‹key
         {
             if ( p -> leftnode == cur )
                 ttTree_split( p, mid, n1, n2, p -> midnode, p -> rightnode ) ;
@@ -238,7 +235,7 @@ public :
                 ttTree_split( p, mid, p -> leftnode, p -> midnode, n1, n2 ) ;
             else ;
         }
-        else // cur¬°root
+        else // curç‚ºroot
         {
             p -> key1 = mid;
             p -> leftnode = n1;
@@ -253,7 +250,7 @@ public :
     void ttTree_print()
     {
         vector<Data> rootlist ;
-        if ( root -> key2.empty() == false ) // ¨â­Ókey
+        if ( root -> key2.empty() == false ) // å…©å€‹key
         {
             if ( root -> key1[0].row_num < root -> key2[0].row_num )
             {
@@ -286,7 +283,7 @@ public :
 
     }
 
-    int ttTree_treetall ( ttTree * t )    // ¾ğ°ª
+    int ttTree_treetall ( ttTree * t )    // æ¨¹é«˜
     {
 
         if ( t == NULL )
@@ -308,30 +305,30 @@ public :
         while( !quit )
         {
 
-            if ( cur -> key1[0].sname == name )    // »Pkey1¦P®Õ¦W
+            if ( cur -> key1[0].sname == name )    // èˆ‡key1åŒæ ¡å
             {
                 m3list = cur -> key1;
                 quit = true;
             }
-            else if ( cur -> key2.empty() == false && cur -> key2[0].sname == name )   // »Pkey2¦P®Õ¦W
+            else if ( cur -> key2.empty() == false && cur -> key2[0].sname == name )   // èˆ‡key2åŒæ ¡å
             {
                 m3list = cur -> key2 ;
                 quit = true;
             }
-            else if ( !quit && cur -> leftnode == NULL && cur -> rightnode == NULL && cur -> midnode == NULL ) // §ä¨ì³Ì©³¤F
+            else if ( !quit && cur -> leftnode == NULL && cur -> rightnode == NULL && cur -> midnode == NULL ) // æ‰¾åˆ°æœ€åº•äº†
                 quit = true;
-            else if ( cur -> key1[0].sname > name ) //¤ñkey1¤p
+            else if ( cur -> key1[0].sname > name ) //æ¯”key1å°
                 cur =  cur -> leftnode ;
-            else if ( cur -> key2.empty() )    // ¥u¦³¤@­Ókey¡A¥B¤ñkey¤j
+            else if ( cur -> key2.empty() )    // åªæœ‰ä¸€å€‹keyï¼Œä¸”æ¯”keyå¤§
             {
                 if ( name > cur -> key1[0].sname )
                     cur =  cur -> rightnode ;
             }
-            else if ( cur -> key2.empty() == false )   // ¨â­Ókey
+            else if ( cur -> key2.empty() == false )   // å…©å€‹key
             {
-                if (  name > cur -> key2[0].sname ) // ¤j©ókey2
+                if (  name > cur -> key2[0].sname ) // å¤§æ–¼key2
                     cur =  cur -> rightnode ;
-                else if ( cur -> key2[0].sname > name  &&  name > cur -> key1[0].sname ) // ¤¶©ókey1&key2¤§¶¡
+                else if ( cur -> key2[0].sname > name  &&  name > cur -> key1[0].sname ) // ä»‹æ–¼key1&key2ä¹‹é–“
                     cur = cur -> midnode ;
             }
             else ;
@@ -358,7 +355,7 @@ public :
 int t2 = 0 ;
 class AVL {
 public:
-    vector<data> schoolList; // ¦s©Ò¦³¦W³æ
+    vector<data> schoolList; // å­˜æ‰€æœ‰åå–®
     vector<data> mission3Tree;
     string fileName;
     DataTree * DepartNameTree = NULL;
@@ -377,36 +374,36 @@ public:
     bool loadData() {
         struct data test;
         fstream fin;
-        string garbage;   // °O¨Æ¥»ªº²Ä¤@¤G¤T¦æ
-        string x;         // ¤£»İ­nªº¸ê®Æ
-        test.number = 0;  // ½s¸¹
+        string garbage;   // è¨˜äº‹æœ¬çš„ç¬¬ä¸€äºŒä¸‰è¡Œ
+        string x;         // ä¸éœ€è¦çš„è³‡æ–™
+        test.number = 0;  // ç·¨è™Ÿ
         int i = 0;
 
         int t = filenum;
         fileName = "input" + to_string(t) + ".txt" ;
         fin.open( fileName.c_str(), ios::in ) ;
 
-        if ( ! fin )   // ¶}±ÒÀÉ®×¥¢±Ñ©Î¬O¨S¦³ÀÉ®×
+        if ( ! fin )   // é–‹å•Ÿæª”æ¡ˆå¤±æ•—æˆ–æ˜¯æ²’æœ‰æª”æ¡ˆ
         {
             cout << endl << "### input" << fileName << ".txt does not exist! ###" << endl << endl;
             return false;
         }
         else
         {
-            getline(fin, garbage);   // Åª±¼©U§£
-            getline(fin, garbage);   // Åª±¼©U§£
-            getline(fin, garbage);   // Åª±¼©U§£
+            getline(fin, garbage);   // è®€æ‰åƒåœ¾
+            getline(fin, garbage);   // è®€æ‰åƒåœ¾
+            getline(fin, garbage);   // è®€æ‰åƒåœ¾
 
             while (fin >> test.schoolCode)
             {
-                getline(fin, x, '\t');   				// Åª±¼©U§£
+                getline(fin, x, '\t');   				// è®€æ‰åƒåœ¾
                 getline(fin, test.schoolName, '\t');
-                getline(fin, x, '\t');   			   // Åª±¼©U§£
+                getline(fin, x, '\t');   			   // è®€æ‰åƒåœ¾
                 getline(fin, test.departName, '\t');
                 getline(fin, test.day, '\t');
                 getline(fin, test.level, '\t');
                 int Num = 0;
-                if (fin >> x && x.at(0) == '\"') {    // ·í¸ê®Æ¸I¨ì¨óºbªº³B²z¤è¦¡
+                if (fin >> x && x.at(0) == '\"') {    // ç•¶è³‡æ–™ç¢°åˆ°å”æ§“çš„è™•ç†æ–¹å¼
                     for ( int j = 1 ; j < x.size() ; j++ ) {
                         if (x[j] >= '0' && x[j] <= '9') Num = (x[j]-'0')+ (Num*10);
                     }
@@ -418,8 +415,8 @@ public:
                 }
 
                 test.studentNum = Num;
-                getline(fin, garbage);             // ³Ñ¾l¤£»İ­nªº¸ê®Æ
-                test.number++;                     // ½s¸¹
+                getline(fin, garbage);             // å‰©é¤˜ä¸éœ€è¦çš„è³‡æ–™
+                test.number++;                     // ç·¨è™Ÿ
 
                 schoolList.push_back(test);
             }
@@ -428,7 +425,7 @@ public:
         }
     } // bool loadData
 
-    DataTree *delTree(DataTree *root)                 // ·íÅª·sªºÀÉ®× ·í«e¤G¤¸¾ğ¤£³Q»İ­n®É »¼°jÄÀ©ñ©Ò¦³ªÅ¶¡
+    DataTree *delTree(DataTree *root)                 // ç•¶è®€æ–°çš„æª”æ¡ˆ ç•¶å‰äºŒå…ƒæ¨¹ä¸è¢«éœ€è¦æ™‚ éè¿´é‡‹æ”¾æ‰€æœ‰ç©ºé–“
     {
         if ( root != NULL )
         {
@@ -440,25 +437,25 @@ public:
         return NULL;
     }
 
-    int treeHeight(DataTree *root) {	// ­pºâ¾ğ°ª
+    int treeHeight(DataTree *root) {	// è¨ˆç®—æ¨¹é«˜
         if (root == NULL) return 0;
         else {
             int left = treeHeight(root->left);
             int right = treeHeight(root->right);
-            return 1 + (( left >= right ) ? left : right);   //¤À§O°ïÅ|­pºâ¥ª¥k¤l¾ğ°ª¡A¦^¶Ç¸û¤jªÌ
+            return 1 + (( left >= right ) ? left : right);   //åˆ†åˆ¥å †ç–Šè¨ˆç®—å·¦å³å­æ¨¹é«˜ï¼Œå›å‚³è¼ƒå¤§è€…
         }
     }
 
     DataTree *singleRotate(DataTree *root, int op) { // LL or RR
         DataTree *x = root;
-        if (op == 1) {   // LLªº±¡ªp
+        if (op == 1) {   // LLçš„æƒ…æ³
             DataTree *y = x->left;
             x->left = y->right;
             y->right = x;
             root = y;
             return root;
         }
-        else if (op == 2) {  // RRªº±¡ªp
+        else if (op == 2) {  // RRçš„æƒ…æ³
             DataTree *y = x->right;
             x->right = y->left;
             y->left = x;
@@ -469,11 +466,11 @@ public:
 
     DataTree *doubleRotate(DataTree *root, int op) {
         DataTree *x = root;
-        if (op == 1) {  // LRªº±¡ªp
+        if (op == 1) {  // LRçš„æƒ…æ³
             x->left = singleRotate(x->left, 2);  // RR
             return singleRotate(root, 1); // LL
         }
-        else if (op == 2) {   //RLªº±¡ªp
+        else if (op == 2) {   //RLçš„æƒ…æ³
             x->right = singleRotate(root->right, 1); // LL
             return singleRotate(root, 2); // RR
         }
@@ -481,7 +478,7 @@ public:
     } // double
 
 
-    DataTree *insertDepartNameTree(DataTree *&root, int i)  {       // ¬ì¨t¦WºÙ¬°Áä­Èªº¤G¤¸¾ğ´¡¤J
+    DataTree *insertDepartNameTree(DataTree *&root, int i)  {       // ç§‘ç³»åç¨±ç‚ºéµå€¼çš„äºŒå…ƒæ¨¹æ’å…¥
         if ( root == NULL ) {
             root = new DataTree();
             root->schoolName = schoolList.at(i).schoolName;
@@ -490,20 +487,20 @@ public:
             root->left = NULL;
             root->right = NULL;
         }
-        else if ( schoolList.at(i).departName.compare(root->departName) > 0 )  {  // ¤ñ¸û¦r¦êÁä­Èªº¤j¤p¡A¤ñ·í«e¤j¡A´¡¤J¥kÃä
+        else if ( schoolList.at(i).departName.compare(root->departName) > 0 )  {  // æ¯”è¼ƒå­—ä¸²éµå€¼çš„å¤§å°ï¼Œæ¯”ç•¶å‰å¤§ï¼Œæ’å…¥å³é‚Š
             root->right = insertDepartNameTree(root->right, i);
-            if (treeHeight(root->left) - treeHeight(root->right) == -2) {        // ­n±ÛÂà¡A¥B¥ªÃä¾ğ°ª¤p©ó¥kÃä¾ğ°ª(RR or RL)
+            if (treeHeight(root->left) - treeHeight(root->right) == -2) {        // è¦æ—‹è½‰ï¼Œä¸”å·¦é‚Šæ¨¹é«˜å°æ–¼å³é‚Šæ¨¹é«˜(RR or RL)
                 if (treeHeight(root->right->left) - treeHeight(root->right->right) == 1) root = doubleRotate(root, 2);  // RL
                 else root = singleRotate(root, 2); // RR
             }
         }
 
         else if (schoolList.at(i).departName.compare(root->departName) == 0)   root->node.push_back(schoolList.at(i).number);
-      																		   // ¤ñ¸û¦r¦êÁä­Èªº¤j¤p¡A¸ò·í«e¤@¼Ë¡A´¡¤J¬Û¦P¸`ÂI
-        else {  															   // ¤ñ¸û¦r¦êÁä­Èªº¤j¤p¡A¤ñ·í«e¤j¡A´¡¤J¥kÃä
+      																		   // æ¯”è¼ƒå­—ä¸²éµå€¼çš„å¤§å°ï¼Œè·Ÿç•¶å‰ä¸€æ¨£ï¼Œæ’å…¥ç›¸åŒç¯€é»
+        else {  															   // æ¯”è¼ƒå­—ä¸²éµå€¼çš„å¤§å°ï¼Œæ¯”ç•¶å‰å¤§ï¼Œæ’å…¥å³é‚Š
 		    root->left = insertDepartNameTree(root->left, i);
 
-            if (treeHeight(root->left) - treeHeight(root->right) == 2) {	   // ­n±ÛÂà¡A¥B¥ªÃä¾ğ°ª¤j©ó¥kÃä¾ğ°ª(LL or LR)
+            if (treeHeight(root->left) - treeHeight(root->right) == 2) {	   // è¦æ—‹è½‰ï¼Œä¸”å·¦é‚Šæ¨¹é«˜å¤§æ–¼å³é‚Šæ¨¹é«˜(LL or LR)
                 if (treeHeight(root->left->left) - treeHeight(root->left->right) == -1) root = doubleRotate(root, 1);  // LR
                 else root = singleRotate(root, 1); // RL
             }
@@ -511,7 +508,7 @@ public:
         return root;
     }
 
-    DataTree *buildTree(DataTree *&root)  {   /////////////////////////////////////////«Ø¾ğ
+    DataTree *buildTree(DataTree *&root)  {   /////////////////////////////////////////å»ºæ¨¹
 		for ( int i = 0 ; i < schoolList.size() ; i++ )  {
             root = insertDepartNameTree(root, i);
         }
@@ -542,7 +539,7 @@ public:
     }
 
 
-    void printData(DataTree *root) {   // ¦L¥X°ÊºA°}¦C¤¤ªº¸ê®Æ
+    void printData(DataTree *root) {   // å°å‡ºå‹•æ…‹é™£åˆ—ä¸­çš„è³‡æ–™
         int n = 0;
         for (int i = 0 ; i < root->node.size() ; i++) {
             for (int j = 0 ; j < schoolList.size() ; j++) {
@@ -577,13 +574,13 @@ int panel() ;
 int main()
 {
     vector<Data> da ;
-    vector<Data> m3ttall; // m3 ªºttTree ¬° '*'
-    vector<Data> collegelist ; // m3 ªºttTree
+    vector<Data> m3ttall; // m3 çš„ttTree ç‚º '*'
+    vector<Data> collegelist ; // m3 çš„ttTree
     vector<data> missionThreeUse;
-    bool quit = false ;        // ¦pªGfilenumber¬°0´Nquit
+    bool quit = false ;        // å¦‚æœfilenumberç‚º0å°±quit
     int command =  panel() ;
-    bool have_run_m1 = false;  // ½T»{¦³¨S¦³¶]¹L¥ô°È¤@
-	int missionTwoAgain = 0;   // command = 1->2->2ªº±¡ªp
+    bool have_run_m1 = false;  // ç¢ºèªæœ‰æ²’æœ‰è·‘éä»»å‹™ä¸€
+	int missionTwoAgain = 0;   // command = 1->2->2çš„æƒ…æ³
 	bool haveData = false;
     AVL schoolList;
     AVL mission3Tree;
@@ -591,7 +588,7 @@ int main()
 
 
     ttTree m3tt;
-    int height = 0;			   // ¶]AVL³Ì¤j¾ğ°ª¥Î
+    int height = 0;			   // è·‘AVLæœ€å¤§æ¨¹é«˜ç”¨
 
     while ( command )
     {
@@ -637,7 +634,7 @@ int main()
             	missionTwoAgain++;
             	haveData = schoolList.loadData();
                 schoolList.DepartNameTree = schoolList.buildTree(schoolList.DepartNameTree);
-                height = schoolList.treeHeight(schoolList.DepartNameTree);   // ³Ì¤j¾ğ°ª
+                height = schoolList.treeHeight(schoolList.DepartNameTree);   // æœ€å¤§æ¨¹é«˜
                 if ( missionTwoAgain > 1 ) cout << "### AVL tree has been built. ###" << endl;
                 cout << "Tree height = " << height << endl;
                 schoolList.printData(schoolList.DepartNameTree);
@@ -654,7 +651,7 @@ int main()
                 cout << "Enter a college name to search [*]:" ;
                 cin >> college ;
                 if ( college == "*" )
-                    collegelist = m3ttall ; // ¥ş¸ê®Æ
+                    collegelist = m3ttall ; // å…¨è³‡æ–™
                 else {
                    ttTree temp = m3tt;
                    collegelist = temp.ttTree_m3list( college );
@@ -703,7 +700,7 @@ int main()
 
 }
 
-int panel() // Åã¥Ü¥\¯à²M³æ
+int panel() // é¡¯ç¤ºåŠŸèƒ½æ¸…å–®
 {
     cout << endl << "*** Search Tree Utilities **" << endl;
     cout << "* 0. QUIT                  *" << endl;
@@ -723,7 +720,7 @@ int panel() // Åã¥Ü¥\¯à²M³æ
     return command ;
 }
 
-bool input_file( vector<Data> &v, int filenumber )   //ÅªÀÉ
+bool input_file( vector<Data> &v, int filenumber )   //è®€æª”
 {
     fstream file ;
     string filename = "input" + to_string(filenumber) + ".txt" ;
@@ -809,3 +806,4 @@ bool input_file( vector<Data> &v, int filenumber )   //ÅªÀÉ
     }
 
 }
+
